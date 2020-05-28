@@ -1,8 +1,12 @@
 <template>
   <div id="app">
+    <div class="title">
+      <h1>PIRATY</h1>
+    </div>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">トップページ</router-link> |
+      <router-link to="/about">PIRATYについて</router-link> |
+      <router-link to="/ranking">ランキング</router-link> |
     </div>
     <router-view />
   </div>
@@ -16,10 +20,12 @@
   text-align: center;
   color: #2c3e50;
 }
-
+.title {
+  text-align: center;
+  font-size: 28px;
+}
 #nav {
   padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;
