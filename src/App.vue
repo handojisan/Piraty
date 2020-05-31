@@ -7,6 +7,7 @@
       <router-link to="/">トップページ</router-link> |
       <router-link to="/about">PIRATYについて</router-link> |
       <router-link to="/ranking">ランキング</router-link> |
+      
     </div>
     <router-view />
   </div>

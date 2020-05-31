@@ -22,10 +22,18 @@
         <li><input type="submit" name="submit" value="検索" /></li>
       </ul>
     </div>
+    <Search />
   </div>
 </template>
 
-<script></script>
+<script>
+  import Search from"@/components/Search.vue";
+  export default{
+    components:{
+      Search
+    }
+  }
+</script>
 <style lang="scss">
 ul {
   height: 10px;
