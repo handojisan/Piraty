@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Ranking from "../views/Ranking.vue";
+import Post from "../views/Post.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/ranking",
     name: "Ranking",
     component: Ranking
+  },
+  {
+    path: "/post",
+    name: "Post",
+    component: Post
   }
 ];
 
