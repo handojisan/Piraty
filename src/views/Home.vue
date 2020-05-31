@@ -22,14 +22,18 @@
         <li><input type="submit" name="submit" value="検索" /></li>
       </ul>
     </div>
-    <div v-for="post in posts" :key="post.id">{{ post }}</div>
+    <Search />
   </div>
 </template>
 
 <script>
-
+import Search from "@/components/Search.vue";
+export default {
+  components: {
+    Search
+  }
+};
 </script>
-
 <style lang="scss">
 ul {
   height: 10px;
