@@ -22,10 +22,14 @@
         <li><input type="submit" name="submit" value="検索" /></li>
       </ul>
     </div>
+    <div v-for="post in posts" :key="post.id">{{ post }}</div>
   </div>
 </template>
 
-<script></script>
+<script>
+
+</script>
+
 <style lang="scss">
 ul {
   height: 10px;
