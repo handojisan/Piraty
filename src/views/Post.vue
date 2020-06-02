@@ -23,19 +23,17 @@ export default {
       markdownOption: {
         bold: true,
         italic: true,
-        header: true,
+        header: true
       }
-    }
+    };
   },
   methods: {
     post() {
       const post = {
         value: this.value
-      }
-      db.collection("posts")
-        .add(post)
+      };
+      db.collection("posts").add(post);
     }
-  },
+  }
 };
-
 </script>
