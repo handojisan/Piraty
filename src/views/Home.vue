@@ -23,14 +23,18 @@
       </ul>
     </div>
     <Search />
+    <PostList />
+    <!-- ↑投稿を表示する -->
   </div>
 </template>
 
 <script>
 import Search from "@/components/Search.vue";
+import PostList from "@/components/PostList";
 export default {
   components: {
-    Search
+    Search,
+    PostList //投稿を表示する
   }
 };
 </script>
