@@ -3,6 +3,19 @@
     <div class="title">
       <h1>PIRATY</h1>
     </div>
+    <div v-if="user">
+      <button v-on:click="signOut">ログアウト</button>
+    </div>
+    <div v-else>
+      <span>メールアドレス：<input type="email" v-model="email"/></span>
+      <tr />
+      <span>パスワード：<input type="password" v-model="password"/></span>
+      <tr />
+      <button v-on:click="SignUp">新規登録</button>
+      <button v-on:click="LogIn">ログイン</button>
+      <button v-on:click="GoogleLogin">Google</button>
+    </div>
+
     <div id="nav">
       <router-link to="/">トップページ</router-link> |
       <router-link to="/about">PIRATYについて</router-link> |
@@ -12,6 +25,46 @@
     <router-view />
   </div>
 </template>
+
+<script>
+import firebase from "firebase";
+export default {
+  data() {
+    return {
+      user: null,
+      email: null,
+      password: null
+    };
+  },
+  methods: {
+    SignUp() {
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
+      //this.email = "";
+      //this.password = "";
+    },
+    LogIn() {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password);
+    },
+    GoogleLogin() {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider);
+    },
+    signOut: function() {
+      firebase.auth().signOut();
+    }
+  },
+  created() {
+    // firebase auth ログイン状態を確認
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.user = user;
+      } else {
+        this.user = null;
+      }
+    });
+  }
+};
+</script>
 
 <style lang="scss">
 #app {

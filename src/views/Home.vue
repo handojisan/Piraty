@@ -40,7 +40,6 @@ export default {
 </script>
 <style lang="scss">
 ul {
-  height: 10px;
   margin: 0px 0px 0px 30px;
   padding-left: 0px;
 }
