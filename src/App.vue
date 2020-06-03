@@ -11,7 +11,7 @@
       <tr />
       <span>パスワード：<input type="password" v-model="password"/></span>
       <tr />
-      <button v-on:click="SignUP">新規登録</button>
+      <button v-on:click="SignUp">新規登録</button>
       <button v-on:click="LogIn">ログイン</button>
       <button v-on:click="GoogleLogin">Google</button>
     </div>
@@ -42,7 +42,9 @@ export default {
       //this.email = "";
       //this.password = "";
     },
-    LogIn() {},
+    LogIn() {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password);
+    },
     GoogleLogin() {
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider);
