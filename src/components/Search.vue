@@ -5,11 +5,7 @@
       <input type="text" name="q" size="31" maxlength="255" value="" />
       <input type="submit" name="btng" value="検索" />
       <input type="hidden" name="hl" value="ja" />
-      <input
-        type="hidden"
-        name="sitesearch"
-        value="https://piraty-project.firebaseapp.com/"
-      />
+      <input type="hidden" name="sitesearch" value="" />
     </form>
   </div>
 </template>
