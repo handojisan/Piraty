@@ -4,6 +4,7 @@ import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Ranking from "@/views/Ranking.vue";
 import Post from "@/views/Post.vue";
+import Login from "@/views/Login.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: "/post",
     name: "Post",
     component: Post
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login
   }
 ];
 

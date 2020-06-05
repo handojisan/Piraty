@@ -1,21 +1,17 @@
 <template>
   <div id="app">
+    <div v-if="user">
+      <div>{{ user.email }}</div>
+      <a v-on:click="SignOut">ログアウト</a>
+    </div>
+    <div v-else>
+      <router-link to="/login">新規登録</router-link> |
+      <router-link to="/login">ログイン</router-link>
+    </div>
+
     <div class="title">
       <h1>PIRATY</h1>
     </div>
-    <div v-if="user">
-      <button v-on:click="signOut">ログアウト</button>
-    </div>
-    <div v-else>
-      <span>メールアドレス：<input type="email" v-model="email"/></span>
-      <tr />
-      <span>パスワード：<input type="password" v-model="password"/></span>
-      <tr />
-      <button v-on:click="SignUp">新規登録</button>
-      <button v-on:click="LogIn">ログイン</button>
-      <button v-on:click="GoogleLogin">Google</button>
-    </div>
-
     <div id="nav">
       <router-link to="/">トップページ</router-link> |
       <router-link to="/about">PIRATYについて</router-link> |
@@ -31,25 +27,11 @@ import firebase from "firebase";
 export default {
   data() {
     return {
-      user: null,
-      email: null,
-      password: null
+      user: null
     };
   },
   methods: {
-    SignUp() {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
-      //this.email = "";
-      //this.password = "";
-    },
-    LogIn() {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password);
-    },
-    GoogleLogin() {
-      var provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider);
-    },
-    signOut: function() {
+    SignOut: function() {
       firebase.auth().signOut();
     }
   },
