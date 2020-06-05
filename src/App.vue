@@ -20,7 +20,7 @@
       <router-link to="/">トップページ</router-link> |
       <router-link to="/about">PIRATYについて</router-link> |
       <router-link to="/ranking">ランキング</router-link> |
-      <router-link to="post">投稿</router-link>
+      <router-link :to="'post' + number">投稿</router-link>
     </div>
     <router-view />
   </div>

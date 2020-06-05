@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <input id="title" type="text" v-model="title" placeholder="タイトル" />
     <div id="main">
       <mavon-editor v-model="value" :toolbars="markdownOption" language="ja" />
     </div>
@@ -20,6 +21,7 @@ export default {
   name: "app",
   data() {
     return {
+      title: "",
       value: "",
       markdownOption: {
         bold: true,
@@ -54,6 +56,7 @@ export default {
   methods: {
     post() {
       const post = {
+        title: this.title,
         value: this.value
       };
       db.collection("posts").add(post);
@@ -61,3 +64,9 @@ export default {
   }
 };
 </script>
+<style>
+#title {
+  height: 30px;
+  width: 200px;
+}
+</style>
