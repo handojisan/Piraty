@@ -5,8 +5,7 @@
       <a v-on:click="SignOut">ログアウト</a>
     </div>
     <div v-else>
-      <router-link to="/login">新規登録</router-link> |
-      <router-link to="/login">ログイン</router-link>
+      <router-link to="/login">新規登録/ログイン</router-link>
     </div>
 
     <div class="title">
