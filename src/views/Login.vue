@@ -21,15 +21,42 @@ export default {
   },
   methods: {
     SignUp() {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
-      //this.email = "";
-      //this.password = "";
-      //ホームに戻る(vue.jsページ遷移)
-      this.$router.push("/");
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(result => {
+          //if (result) {
+          // 成功時の処理
+          console.log(result);
+          this.$router.push("/");
+          //}
+        })
+        .catch(error => {
+          console.log(error);
+          // エラー時の処理
+          alert(error.message);
+        });
+      this.email = "";
+      this.password = "";
     },
     LogIn() {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password);
-      this.$router.push("/");
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(result => {
+          if (result) {
+            // 成功時の処理
+            console.log(result);
+            this.$router.push("/");
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          // エラー時の処理
+          alert(error.message);
+        });
+      this.email = "";
+      this.password = "";
     },
     GoogleLogin() {
       var provider = new firebase.auth.GoogleAuthProvider();
