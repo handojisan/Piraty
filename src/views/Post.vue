@@ -1,7 +1,6 @@
 <template>
   <div id="App">
     <PostForm />
-    <PostList />
   </div>
 </template>
 <script>
