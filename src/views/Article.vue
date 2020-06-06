@@ -33,9 +33,11 @@ export default {
   computed: {
     compiledMarkdownText: function() {
       return function(key) {
-        for (let i = 0; i < this.posts.length; i++) {
-          if (this.posts[i].id == key) {
-            return marked(this.posts[i].value);
+        if (this.posts) {
+          for (let i = 0; i < this.posts.length; i++) {
+            if (this.posts[i].id == key) {
+              return marked(this.posts[i].value);
+            }
           }
         }
       };
