@@ -5,6 +5,7 @@ import About from "@/views/About.vue";
 import Ranking from "@/views/Ranking.vue";
 import Post from "@/views/Post.vue";
 import Login from "@/views/Login.vue";
+import Profile from "@/views/Profile.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile
   }
 ];
 
