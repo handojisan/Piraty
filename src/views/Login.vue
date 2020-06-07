@@ -61,6 +61,7 @@ export default {
     GoogleLogin() {
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider);
+      this.$router.push("/");
     },
     signOut: function() {
       firebase.auth().signOut();

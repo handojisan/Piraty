@@ -4,7 +4,7 @@
     <div id="main">
       <mavon-editor v-model="value" :toolbars="markdownOption" language="ja" />
     </div>
-    <button v-on:click="post">投稿</button>
+    <button id="postButton" v-on:click="post">投稿</button>
   </div>
 </template>
 
@@ -12,10 +12,11 @@
 import Vue from "vue";
 import mavonEditor from "mavon-editor";
 import "mavon-editor/dist/css/index.css";
-
+import VuejsDialog from "vuejs-dialog";
 import { db } from "@/firebase";
 
 Vue.use(mavonEditor);
+Vue.use(VuejsDialog);
 
 export default {
   name: "app",
@@ -54,19 +55,64 @@ export default {
     };
   },
   methods: {
-    post() {
-      const post = {
-        title: this.title,
-        value: this.value
-      };
-      db.collection("posts").add(post);
+    post: function() {
+      this.$dialog
+        .confirm(
+          {
+            title: "最終確認",
+            body: "本当に投稿してもよろしいですか？"
+          },
+          {
+            okText: "はい",
+            cancelText: "キャンセル"
+          }
+        )
+        .then(function() {
+          const post = {
+            title: this.title,
+            value: this.value,
+            date: Date.now()
+          };
+          if (post.title && post.value) {
+            this.title = "";
+            this.value = "";
+            db.collection("posts").add(post);
+          }
+        })
+        .catch(function() {
+          console.log("cancel");
+        });
     }
   }
 };
 </script>
 <style>
 #title {
-  height: 30px;
-  width: 200px;
+  height: 50px;
+  width: 80%;
+  font-size: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 10px;
+}
+
+#postButton {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #fff;
+  background: #fd9535; /*色*/
+  border-radius: 4px; /*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  border: solid 2px #d27d00; /*線色*/
+}
+
+#postButton:active {
+  /*押したとき*/
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 </style>
