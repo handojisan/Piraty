@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>{{ title(key) }}</h1>
     <div v-html="compiledMarkdownText(key)" v-if="posts"></div>
   </div>
 </template>
@@ -31,11 +32,22 @@ export default {
     });
   },
   computed: {
+    title: function() {
+      return function(key) {
+        if (this.posts) {
+          for (let i = 0; i < this.posts.length; i++) {
+            if (this.posts[i].id === key) {
+              return this.posts[i].title;
+            }
+          }
+        }
+      };
+    },
     compiledMarkdownText: function() {
       return function(key) {
         if (this.posts) {
           for (let i = 0; i < this.posts.length; i++) {
-            if (this.posts[i].id == key) {
+            if (this.posts[i].id === key) {
               return marked(this.posts[i].value);
             }
           }
