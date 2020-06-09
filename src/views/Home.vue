@@ -39,6 +39,7 @@ export default {
 <style lang="scss">
 .box {
   padding: 30px;
+  background-color: rgba(0, 0, 0, 0);
 }
 ul {
   margin: 0px 0px 0px 30px;

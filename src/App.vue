@@ -26,6 +26,25 @@
       </div>
     </div>
     <router-view />
+    <vue-particles
+      class="party"
+      color="#FFFF99"
+      :particleOpacity="1"
+      :particlesNumber="150"
+      shapeType="circle"
+      :particleSize="1"
+      linesColor="#dedede"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.7"
+      :linesDistance="150"
+      :moveSpeed="5"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+    >
+    </vue-particles>
   </div>
 </template>
 
@@ -60,6 +79,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkdit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./assets/image/space.jpg");
   text-align: center;
   color: #2c3e50;
 }
@@ -179,13 +199,16 @@ export default {
   }
 }
 .title {
-  height: 300px;
+  //height: 300px;
   h1 {
-    height: 300px;
+    //height: 300px;
     align-items: center;
     padding: 10px;
     font-size: 80pt;
     font-family: "Noto Serif JP", sans-serif;
   }
+}
+.party {
+  height: 1000px;
 }
 </style>
