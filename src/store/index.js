@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import firebase from "firebase";
+// import createPersistedState from "vuex-persistedstate";
+//import firebase from "firebase";
 
 Vue.use(Vuex);
 
@@ -23,6 +24,9 @@ const store = new Vuex.Store({
 
 export default store;
 
-firebase.auth().onAuthStateChanged(user => {
-  store.dispatch("setUser", user);
-});
+// firebase.auth().onAuthStateChanged(user => {
+//   store.dispatch("setUser", user);
+
+// plugins: [createPersistedState()],
+// modules: {}
+// });
