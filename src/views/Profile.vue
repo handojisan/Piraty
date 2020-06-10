@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="center">
-      <div>{{ userName }}さん、こんにちは！</div>
+      <div class="hello-profile">{{ userName }}さん、こんにちは！</div>
       <div v-if="$store.getters.isSignedIn" class="center">
         <UserProfileForm />
         <button @click="signOut">サインアウト</button>
       </div>
       <div v-else>
-        <button @click="signIn">サインイン</button>
+        <button @click="signIn" class="signIn-profile">サインイン</button>
       </div>
     </div>
   </div>
@@ -46,4 +46,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.hello-profile {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+.signIn-profile {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+</style>

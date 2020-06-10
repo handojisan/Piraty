@@ -3,7 +3,7 @@
     <header>
       <div id="container-example2">
         <div class="strip colour-1">
-          <div v-if="user">
+          <div v-if="user" class="user-app">
             <router-link to="/profile">{{ user.email }}</router-link>
             <a v-on:click="SignOut">Logout</a>
           </div>
@@ -26,6 +26,10 @@
       </div>
     </div>
     <router-view />
+    <footer class="footer">
+      <p>©︎2020.team-piranha</p>
+      <p>PIRATY-Project</p>
+    </footer>
   </div>
 </template>
 
@@ -93,7 +97,7 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    background: #ffcc99;
+    background: orange;
   }
   a {
     font-size: 10pt;
@@ -108,7 +112,7 @@ export default {
   }
 
   .colour-1 {
-    background: #ffcc99;
+    background: orange;
     a::after {
       width: 100%;
       height: 0;
@@ -138,7 +142,7 @@ export default {
   }
   .strip {
     width: 100%;
-    height: 200px;
+    height: 100px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -179,7 +183,7 @@ export default {
   }
 }
 .title {
-  height: 300px;
+  height: 170px;
   h1 {
     height: 300px;
     align-items: center;
@@ -187,5 +191,16 @@ export default {
     font-size: 80pt;
     font-family: "Noto Serif JP", sans-serif;
   }
+}
+.user-app {
+  font-size: 40px;
+}
+.footer {
+  font-size: 20px;
+  font-family: sans-serif;
+  background-color: #ffcc99;
+  width: 100%;
+  height: 100px;
+  padding-top: 10px;
 }
 </style>
