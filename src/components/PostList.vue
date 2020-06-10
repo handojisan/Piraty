@@ -1,17 +1,14 @@
 <template>
   <div id="App">
-    <div
-      v-for="post in posts"
-      v-bind:key="post.id"
-      v-html="compiledMarkdownText(post.value)"
-    >
-      {{ post.value }}
+    <div v-for="post in posts" :key="post.id">
+      <router-link :to="'/Article/' + post.id">
+        {{ post.title }}
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import marked from "marked";
 import { db } from "@/firebase";
 
 export default {
@@ -31,13 +28,6 @@ export default {
           };
         });
       });
-  },
-  computed: {
-    compiledMarkdownText: function() {
-      return function(text) {
-        return marked(text);
-      };
-    }
   }
 };
 </script>
