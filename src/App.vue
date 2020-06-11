@@ -101,10 +101,7 @@ export default {
   color: #2c3e50;
   position: relative;
 }
-.title {
-  text-align: center;
-  font-size: 28px;
-}
+
 #nav {
   padding: 30px;
   a {
