@@ -34,9 +34,9 @@
         class="particles"
         color="#FFFF99"
         :particleOpacity="1"
-        :particlesNumber="300"
-        shapeType="circle"
-        :particleSize="2"
+        :particlesNumber="100"
+        shapeType="triangle"
+        :particleSize="20"
         linesColor="#dedede"
         :linesWidth="2"
         :lineLinked="true"
@@ -53,7 +53,7 @@
     </div>
 
     <div id="container-example">
-      <div class="strip colour-1">
+      <div class="menu-bar colour-1">
         <router-link to="/">Top</router-link>
         <router-link to="/about">About</router-link>
         <router-link to="/ranking">Ranking</router-link>
@@ -231,9 +231,9 @@ export default {
   *::before {
     box-sizing: border-box;
   }
-  .strip {
+  .menu-bar {
     width: 100%;
-    height: 200px;
+    height: 170px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -283,7 +283,7 @@ export default {
     left: 0;
     width: 100%;
     height: 300px;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
