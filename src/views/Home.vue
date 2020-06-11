@@ -18,9 +18,8 @@
           <option value="サンプル3">サンプル3</option>
         </select>
       </li>
-      <li><input type="submit" name="submit" value="検索" /></li>
+      <li><Search /></li>
     </ul>
-    <Search />
     <PostList />
     <!-- ↑投稿を表示する -->
   </div>

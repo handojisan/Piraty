@@ -3,55 +3,59 @@
     <header>
       <!-- <div id="container-example2">
         <div class="strip colour-1"> -->
-      <div class="hanburger">
-        <a
-          class="menu-trigger"
-          v-bind:class="{ active: isclicked }"
-          v-on:click="isclicked = !isclicked"
-          href="#"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-        <div class="menuLine" v-show="isclicked">
-          <div v-if="user">
-            <a>{{ user.email }}</a>
-            <a v-on:click="SignOut">Logout</a>
-          </div>
-          <div v-else>
-            <router-link to="/login">SignIn Login</router-link>
+      <div class="background">
+        <div class="hanburger">
+          <a
+            class="menu-trigger"
+            v-bind:class="{ active: isclicked }"
+            v-on:click="isclicked = !isclicked"
+            href="#"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+          <div class="menuLine" v-show="isclicked">
+            <div v-if="user" class="user-app">
+              <div class="user-email">
+                <router-link to="/profile">{{ user.email }}</router-link>
+              </div>
+              <div class="userLogout">
+                <a v-on:click="SignOut">Logout</a>
+              </div>
+            </div>
+            <div v-else>
+              <router-link to="/login">SignIn Login</router-link>
+            </div>
+            <!-- <div id="container-example2">
+              <div class="strip colour-1"> -->
           </div>
         </div>
+
+        <div class="title">
+          <vue-particles
+            class="particles"
+            color="#FFFF99"
+            :particleOpacity="1"
+            :particlesNumber="300"
+            shapeType="circle"
+            :particleSize="2"
+            linesColor="#FFCC66"
+            :linesWidth="4"
+            :lineLinked="true"
+            :lineOpacity="0.7"
+            :linesDistance="150"
+            :moveSpeed="3"
+            :hoverEffect="true"
+            hoverMode="grab"
+            :clickEffect="true"
+            clickMode="push"
+          >
+          </vue-particles>
+          <div class="titleName"><h1>PIRATY</h1></div>
+        </div>
       </div>
-
-      <!-- </div>
-      </div> -->
     </header>
-
-    <div class="title">
-      <vue-particles
-        class="particles"
-        color="#FFFF99"
-        :particleOpacity="1"
-        :particlesNumber="100"
-        shapeType="triangle"
-        :particleSize="20"
-        linesColor="#dedede"
-        :linesWidth="2"
-        :lineLinked="true"
-        :lineOpacity="0.7"
-        :linesDistance="150"
-        :moveSpeed="3"
-        :hoverEffect="true"
-        hoverMode="grab"
-        :clickEffect="true"
-        clickMode="push"
-      >
-      </vue-particles>
-      <div class="titleName"><h1>PIRATY</h1></div>
-    </div>
-
     <div id="container-example">
       <div class="menu-bar colour-1">
         <router-link to="/">Top</router-link>
@@ -61,6 +65,10 @@
       </div>
     </div>
     <router-view />
+    <footer class="footer">
+      <p>©︎2020.team-piranha</p>
+      <p>PIRATY-Project</p>
+    </footer>
   </div>
 </template>
 
@@ -207,16 +215,28 @@ export default {
   opacity: 0;
 }
 .hanburger {
-  position: relative;
+  position: absolute;
   display: inline-block;
+  color: #fff;
+  left: 30px;
+  top: 20px;
+  z-index: 4;
   .menuLine {
     z-index: 5;
     position: absolute;
-    bottom: -20px;
+    top: 50px;
     left: 0;
-    a {
-      background-color: red;
-    }
+  }
+}
+.user-app {
+  font-size: 20px;
+  .user-email {
+    position: relative;
+  }
+  .userLogout {
+    position: relative;
+    right: 58px;
+    top: 5px;
   }
 }
 
@@ -250,7 +270,7 @@ export default {
   }
 
   .colour-1 {
-    background: #a3d7ef;
+    background: #ffcc99;
     a::after {
       width: 100%;
       height: 0;
@@ -271,7 +291,7 @@ export default {
   }
 }
 .title {
-  height: 300px;
+  height: 700px;
   width: 100%;
   position: relative;
   .titleName {
@@ -279,7 +299,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 300px;
+    height: 700px;
     z-index: 3;
     display: flex;
     flex-direction: column;
@@ -289,9 +309,10 @@ export default {
       //height: 300px;
       align-items: center;
       padding: 10px;
-      font-size: 80pt;
+      font-size: 150pt;
       font-family: "Noto Serif JP", sans-serif;
-      color: #ffcc99;
+      color: #ff6633;
+      font-family: "Vollkorn", serif;
     }
   }
 
@@ -300,8 +321,19 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 300px;
+    height: 700px;
     z-index: 1;
   }
+}
+// .background {
+//background-image: url("./assets/image/space2.jpg");
+//}
+.footer {
+  font-size: 20px;
+  font-family: sans-serif;
+  background-color: #ffcc99;
+  width: 100%;
+  height: 100px;
+  padding-top: 10px;
 }
 </style>
