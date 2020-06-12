@@ -61,10 +61,13 @@ export default {
           }
         )
         .then(() => {
+          console.log("aa");
           const post = {
             title: this.title,
             value: this.value,
-            date: Date.now()
+            date: Date.now(),
+            auth: this.$store.state.user.uid,
+            fav: 0
           };
           if (post.title && post.value) {
             this.title = "";
