@@ -6,6 +6,7 @@ import Ranking from "@/views/Ranking.vue";
 import Post from "@/views/Post.vue";
 import Login from "@/views/Login.vue";
 import Article from "@/views/Article.vue";
+import Profile from "@/views/Profile.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,11 @@ const routes = [
     path: "/Article/:id",
     name: "Article",
     component: Article
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: Profile
   }
 ];
 
