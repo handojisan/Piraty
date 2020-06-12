@@ -4,7 +4,9 @@
       <div id="container-example2">
         <div class="strip colour-1">
           <div v-if="user" class="user-app">
-            <router-link to="/profile">{{ user.email }}</router-link>
+            <router-link to="/profile"
+              >{{ user.email }}でログイン中</router-link
+            >
             <a v-on:click="SignOut">Logout</a>
           </div>
           <div v-else>
