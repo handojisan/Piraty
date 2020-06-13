@@ -9,7 +9,6 @@
             class="menu-trigger"
             v-bind:class="{ active: isclicked }"
             v-on:click="isclicked = !isclicked"
-            href="#"
           >
             <span></span>
             <span></span>
@@ -215,7 +214,7 @@ export default {
   opacity: 0;
 }
 .hanburger {
-  position: absolute;
+  position: fixed;
   display: inline-block;
   color: #fff;
   left: 30px;
@@ -329,7 +328,7 @@ export default {
 //background-image: url("./assets/image/space2.jpg");
 //}
 .footer {
-  font-size: 20px;
+  font-size: 12px;
   font-family: sans-serif;
   background-color: #ffcc99;
   width: 100%;
