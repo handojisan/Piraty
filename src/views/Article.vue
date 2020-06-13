@@ -77,7 +77,7 @@ export default {
             .delete()
             .then(function() {
               console.log("Document successfully deleted!");
-              //this.$router.push("/");これやりたかったけど，よく分からなかったのでとりあえずコメントアウトしましたbyさっきー
+              this.$router.push("/"); //これやりたかったけど，よく分からなかったのでとりあえずコメントアウトしましたbyさっきー
             })
             .catch(function(error) {
               console.error("Error removing document: ", error);
