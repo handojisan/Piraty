@@ -2,7 +2,7 @@
   <div id="app">
     <div class="ranking-box">
       <div class="ranking-title">
-        <p>Ranking</p>
+        <p>Top 3</p>
       </div>
       <div v-for="post in posts" :key="post.id">
         <div class="postList">

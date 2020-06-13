@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <h1>{{ title(key) }}</h1>
-    <div v-html="compiledMarkdownText(key)" v-if="posts"></div>
-    <button v-if="desplayPost.auth === userid" v-on:click="deleteButton">
-      投稿を削除
-    </button>
-    <button v-else v-on:click="fav">気に入った！</button>
-    <span> {{ this.desplayPost.fav }} </span>
+    <div class="postList">
+      <h1 class="title">{{ title(key) }}</h1>
+      <div v-html="compiledMarkdownText(key)" v-if="posts"></div>
+      <button v-if="desplayPost.auth === userid" v-on:click="deleteButton">
+        投稿を削除
+      </button>
+      <button v-else v-on:click="fav">気に入った！</button>
+      <span> {{ this.desplayPost.fav }} </span>
+    </div>
   </div>
 </template>
 
@@ -100,4 +102,24 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped></style>
+<style scoped lang="scss">
+.postList {
+  width: 50%;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  margin-top: 10px;
+  z-index: 3;
+  background-color: white;
+}
+.title {
+  font-size: 20px;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+</style>
