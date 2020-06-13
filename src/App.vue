@@ -9,7 +9,6 @@
             class="menu-trigger"
             v-bind:class="{ active: isclicked }"
             v-on:click="isclicked = !isclicked"
-            href="#"
           >
             <span></span>
             <span></span>
@@ -62,6 +61,7 @@
       <div class="menu-bar colour-1">
         <router-link to="/">Top</router-link>
         <router-link to="/about">About</router-link>
+        <router-link to="/profile">Myprofile</router-link>
         <router-link to="/ranking">Ranking</router-link>
         <router-link to="/post">Post</router-link>
       </div>
@@ -101,28 +101,27 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkdit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  //background-image: url("./assets/image/space.jpg");
   text-align: center;
   color: #2c3e50;
   position: relative;
 }
 
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+// #nav {
+//   padding: 30px;
+//   a {
+//     font-weight: bold;
+//     color: #2c3e50;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+//     &.router-link-exact-active {
+//       color: #42b983;
+//     }
+//   }
+// }
 // #container-example2 {
 //   position: relative;
 
@@ -217,7 +216,7 @@ export default {
   opacity: 0;
 }
 .hanburger {
-  position: absolute;
+  position: fixed;
   display: inline-block;
   color: #fff;
   left: 30px;
@@ -332,7 +331,7 @@ export default {
 //background-image: url("./assets/image/space2.jpg");
 //}
 .footer {
-  font-size: 20px;
+  font-size: 12px;
   font-family: sans-serif;
   background-color: #ffcc99;
   width: 100%;

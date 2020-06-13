@@ -8,7 +8,7 @@
         <button @click="signOut">サインアウト</button>
       </div>
       <div v-else>
-        <button @click="signIn" class="signIn-profile">サインイン</button>
+        <button @click="signIn" class="signIn-profile">Login</button>
       </div>
     </div>
   </div>
