@@ -9,7 +9,14 @@
           <router-link :to="'/Article/' + post.id">
             <span class="title">{{ post.title }}</span>
           </router-link>
-          <span class="fav"> ♡{{ post.fav }} </span>
+          <span class="fav" v-if="post.fav < 10"> ♡{{ post.fav }} </span>
+          <span class="fav10" v-else-if="post.fav < 100">
+            ♡{{ post.fav }}
+          </span>
+          <span class="fav100" v-else-if="post.fav < 1000">
+            ♡{{ post.fav }}
+          </span>
+          <span class="fav1000" v-else> ♡{{ post.fav }} </span>
           <p class="postName" v-if="post.name">wirtten by {{ post.name }}</p>
         </div>
       </div>
@@ -65,7 +72,16 @@ export default {
   margin-top: 10px;
 }
 .fav {
-  color: red;
+  color: black;
+}
+.fav10 {
+  color: rgb(255, 127, 0);
+}
+.fav100 {
+  color: rgb(255, 0, 0);
+}
+.fav1000 {
+  color: rgb(81, 255, 0);
 }
 .ranking-box {
   background-color: #ebe4dc;
