@@ -95,6 +95,7 @@ export default {
     inset 0 -2px 0 rgba(0, 0, 0, 0.05);
   font-weight: bold;
   border: solid 2px #d27d00; /*線色*/
+  margin: 10px;
 }
 
 #postButton:active {
