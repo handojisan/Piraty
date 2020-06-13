@@ -114,6 +114,8 @@
   .letter3 {
     font-size: 30px;
     line-height: 30px;
+    font-weight: 600;
+    padding: 20px;
   }
   /* 円と文字の色 */
   .pink1 {

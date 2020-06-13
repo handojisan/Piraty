@@ -1,19 +1,21 @@
 <template>
-  <div class="article">
-    <h1 class="title">{{ title(key) }}</h1>
+  <div class="article-box">
+    <div class="article">
+      <h1 class="title">{{ title(key) }}</h1>
 
-    <span class="postName" v-if="desplayPost.name"
-      >wirtten by
-      <router-link :to="'/Others/' + desplayPost.auth">{{
-        desplayPost.name
-      }}</router-link></span
-    >
-    <div v-html="compiledMarkdownText" v-if="posts"></div>
-    <button v-if="desplayPost.auth === userid" v-on:click="deleteButton">
-      投稿を削除
-    </button>
-    <button v-else v-on:click="fav">気に入った！</button>
-    <span> {{ desplayPost.fav }} </span>
+      <span class="postName" v-if="desplayPost.name"
+        >wirtten by
+        <router-link :to="'/Others/' + desplayPost.auth">{{
+          desplayPost.name
+        }}</router-link></span
+      >
+      <div v-html="compiledMarkdownText" v-if="posts"></div>
+      <button v-if="desplayPost.auth === userid" v-on:click="deleteButton">
+        投稿を削除
+      </button>
+      <button v-else v-on:click="fav">気に入った！</button>
+      <span> {{ desplayPost.fav }} </span>
+    </div>
   </div>
 </template>
 
@@ -106,14 +108,38 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .title {
   font-size: 30px;
   font-weight: bold;
 }
-.article h1 {
-  font-size: 30px;
-  font-weight: bold;
+.article-box {
+  margin: 80px;
+  background-color: #ebe4dc;
+  padding: 60px 40px;
+  width: 80%;
+  display: inline-block;
+  border-radius: 10px;
+}
+.article {
+  width: 90%;
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 0px;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  margin-top: 10px;
+  z-index: 3;
+  background-color: white;
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .article-text {
+    padding: 20px 30px;
+    text-align: justify;
+    text-justify: inter-ideograph;
+  }
 }
 .postList {
   width: 50%;

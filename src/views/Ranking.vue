@@ -65,7 +65,7 @@ export default {
   background-color: white;
 }
 .title {
-  font-size: 20px;
+  font-size: 25px;
   display: inline-block;
   padding: 10px;
   margin-bottom: 10px;
@@ -98,7 +98,7 @@ export default {
     color: white;
   }
   .postName {
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(168, 175, 180);
   }
 }
