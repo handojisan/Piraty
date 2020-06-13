@@ -11,7 +11,12 @@
           ♡{{ post.fav }}
         </span>
         <span class="fav1000" v-else> ♡{{ post.fav }} </span>
-        <p class="postName" v-if="post.name">wirtten by {{ post.name }}</p>
+        <p>
+          <span class="postName">{{ changeDate(post.date) }}</span>
+          <span class="postName" v-if="post.name"
+            >wirtten by {{ post.name }}</span
+          >
+        </p>
       </div>
     </div>
   </div>
@@ -25,6 +30,22 @@ export default {
     return {
       posts: ""
     };
+  },
+  computed: {
+    changeDate: function() {
+      return _timestamp => {
+        var _d = _timestamp ? new Date(_timestamp * 1000) : new Date();
+
+        // var Y = _d.getFullYear();
+        var m = ("0" + (_d.getMonth() + 1)).slice(-2);
+        var d = ("0" + _d.getDate()).slice(-2);
+        var H = ("0" + _d.getHours()).slice(-2);
+        var i = ("0" + _d.getMinutes()).slice(-2);
+        var s = ("0" + _d.getSeconds()).slice(-2);
+
+        return `${m}/${d} ${H}:${i}:${s}`;
+      };
+    }
   },
   mounted() {
     db.collection("posts")

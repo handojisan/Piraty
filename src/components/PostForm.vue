@@ -24,16 +24,11 @@ export default {
       value: "",
       markdownOption: {
         bold: true,
-        header: true,
         undo: true,
         redo: true,
         trash: true,
         /* 1.4.2 */
-        navigation: true,
-        /* 2.1.8 */
-        alignleft: true,
-        aligncenter: true,
-        alignright: true
+        navigation: true
       }
     };
   },
@@ -55,7 +50,7 @@ export default {
           const post = {
             title: this.title,
             value: this.value,
-            date: Date.now(),
+            date: new Date(),
             auth: this.$store.state.user.uid,
             name: this.$store.state.userProfile.name,
             fav: 0
