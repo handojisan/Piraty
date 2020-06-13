@@ -1,10 +1,12 @@
 <template>
   <div id="App">
     <div v-for="post in posts" :key="post.id">
-      <div id="postList">
+      <div class="postList">
         <router-link :to="'/Article/' + post.id">
-          {{ post.title }}
+          <span class="title">{{ post.title }}</span>
         </router-link>
+        <span class="fav"> ♡{{ post.fav }} </span>
+        <p v-if="post.name">wirtten by {{ post.name }}</p>
       </div>
     </div>
   </div>
@@ -21,21 +23,24 @@ export default {
   },
   mounted() {
     db.collection("posts")
-      .orderBy("date")
+      .orderBy("date", "desc")
       .get()
       .then(snapshot => {
-        this.posts = snapshot.docs.reverse().map(doc => {
+        this.posts = snapshot.docs.map(doc => {
           return {
             id: doc.id,
             ...doc.data()
           };
         });
+      })
+      .catch(() => {
+        alert("記事の取得に失敗しました");
       });
   }
 };
 </script>
-<style>
-#postList {
+<style scoped>
+.postList {
   width: 50%;
   display: inline-block;
   padding: 10px;
@@ -43,5 +48,15 @@ export default {
   border: 1px solid #333333;
   border-radius: 10px;
   margin-top: 10px;
+}
+.title {
+  font-size: 20px;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.fav {
+  color: red;
 }
 </style>
