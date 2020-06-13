@@ -35,7 +35,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .box {
   padding: 30px;
   background-color: rgba(0, 0, 0, 0);

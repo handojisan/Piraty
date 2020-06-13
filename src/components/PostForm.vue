@@ -67,6 +67,7 @@ export default {
             value: this.value,
             date: Date.now(),
             auth: this.$store.state.user.uid,
+            name: this.$store.state.userProfile.name,
             fav: 0
           };
           if (post.title && post.value) {
@@ -82,7 +83,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 #title {
   height: 50px;
   width: 80%;
