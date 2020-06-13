@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="profile">
     <div class="center">
       <div class="hello-profile">{{ userName }}さん、こんにちは！</div>
+      <div class="statusMessage">{{ userStatusMessage }}</div>
       <div v-if="$store.getters.isSignedIn" class="center">
         <UserProfileForm />
-        <div>{{ inputStatusMessage }}</div>
         <button @click="signOut">サインアウト</button>
       </div>
       <div v-else>
@@ -44,9 +44,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.profile {
+  font-family: sans-serif;
+}
 .hello-profile {
   font-size: 20px;
+  font-weight: bold;
   font-family: sans-serif;
+}
+.statusMessage {
+  // text-align: center;
+  font-family: sans-serif;
+  font-size: 20px;
+  // height: 30px;
+  // width: 885px;
+  // position: relative;
+  // z-index: 5000;
 }
 .signIn-profile {
   font-size: 20px;
