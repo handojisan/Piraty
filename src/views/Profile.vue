@@ -1,14 +1,16 @@
 <template>
   <div class="profile">
     <div class="center">
-      <div class="hello-profile">{{ userName }}さん、こんにちは！</div>
+      <div class="hello-profile">{{ userName }} さん、こんにちは！</div>
       <div class="statusMessage">{{ userStatusMessage }}</div>
       <div v-if="$store.getters.isSignedIn" class="center">
         <UserProfileForm />
         <button @click="signOut">サインアウト</button>
       </div>
       <div v-else>
-        <button @click="signIn" class="signIn-profile">Login</button>
+        <button @click="signIn" class="signIn-profile">
+          GoogleアカウントでLogin
+        </button>
       </div>
     </div>
   </div>
@@ -54,11 +56,14 @@ export default {
   font-family: sans-serif;
 }
 .statusMessage {
-  // text-align: center;
+  text-align: center;
   font-family: sans-serif;
   font-size: 20px;
+  width: 800px;
+  border: groove;
+  margin: 0 auto;
+  word-wrap: break-all;
   // height: 30px;
-  // width: 885px;
   // position: relative;
   // z-index: 5000;
 }

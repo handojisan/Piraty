@@ -59,17 +59,28 @@
     </header>
     <div id="container-example">
       <div class="menu-bar colour-1">
-        <router-link to="/">Top</router-link>
-        <router-link to="/about">About</router-link>
-        <router-link to="/profile">Myprofile</router-link>
-        <router-link to="/ranking">Ranking</router-link>
-        <router-link to="/post">Post</router-link>
+        <router-link to="/"
+          ><img src="@/images/190_b_24.png" alt="home" />Top</router-link
+        >
+        <router-link to="/about"
+          ><img src="@/images/169_t_24.png" alt="" />About</router-link
+        >
+        <router-link to="/profile"
+          ><img src="@/images/789_me_f.png" alt="" />Myprofile</router-link
+        >
+        <router-link to="/ranking"
+          ><img src="@/images/157_w_24.png" alt="" />Ranking</router-link
+        >
+        <router-link to="/post"
+          ><img src="@/images/787_me_f.png" alt="" />Post</router-link
+        >
       </div>
     </div>
     <router-view />
     <footer class="footer">
       <p>©︎2020.team-piranha</p>
-      <p>PIRATY-Project</p>
+      <p class="p">PIRATY-Project</p>
+      <p class="p-1">お問い合わせ：piraty0123@gmail.com</p>
     </footer>
   </div>
 </template>
@@ -331,11 +342,17 @@ export default {
 //background-image: url("./assets/image/space2.jpg");
 //}
 .footer {
-  font-size: 12px;
+  font-size: 16px;
   font-family: sans-serif;
   background-color: #ffcc99;
   width: 100%;
   height: 100px;
   padding-top: 10px;
+  .p {
+    font-size: 18px;
+  }
+  .p-1 {
+    text-align: right;
+  }
 }
 </style>

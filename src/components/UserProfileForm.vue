@@ -2,7 +2,7 @@
   <div>
     <div>
       <input type="text" v-model="inputName" />
-      <button @click="updateUserName">名前を編集</button>
+      <button @click="updateUserName">10文字以内の名前を編集</button>
     </div>
     <div>
       <div v-if="user.photoURL && user.name">
@@ -20,7 +20,9 @@
     </div>
     <div>
       <input type="text" v-model="inputStatusMessage" />
-      <button @click="updateUserMessage">ステータスメッセージを更新</button>
+      <button @click="updateUserMessage">
+        40字のステータスメッセージを更新
+      </button>
     </div>
   </div>
 </template>
