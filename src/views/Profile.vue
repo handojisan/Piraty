@@ -46,6 +46,7 @@ export default {
 <style lang="scss" scoped>
 .profile {
   font-family: sans-serif;
+  background-color: #f2f2f2;
 }
 .hello-profile {
   font-size: 20px;
