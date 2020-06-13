@@ -6,7 +6,7 @@
           <span class="title">{{ post.title }}</span>
         </router-link>
         <span class="fav"> ♡{{ post.fav }} </span>
-        <p v-if="post.name">wirtten by {{ post.name }}</p>
+        <p class="postName" v-if="post.name">wirtten by {{ post.name }}</p>
       </div>
     </div>
   </div>
@@ -48,6 +48,8 @@ export default {
   border: 1px solid #333333;
   border-radius: 10px;
   margin-top: 10px;
+  z-index: 3;
+  background-color: white;
 }
 .title {
   font-size: 20px;
@@ -58,5 +60,9 @@ export default {
 }
 .fav {
   color: red;
+}
+.postName {
+  font-size: 12px;
+  color: rgb(168, 175, 180);
 }
 </style>

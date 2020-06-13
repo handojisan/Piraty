@@ -59,6 +59,7 @@
       <div class="menu-bar colour-1">
         <router-link to="/">Top</router-link>
         <router-link to="/about">About</router-link>
+        <router-link to="/profile">Myprofile</router-link>
         <router-link to="/ranking">Ranking</router-link>
         <router-link to="/post">Post</router-link>
       </div>
@@ -103,23 +104,22 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkdit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  //background-image: url("./assets/image/space.jpg");
   text-align: center;
   color: #2c3e50;
   position: relative;
 }
 
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+// #nav {
+//   padding: 30px;
+//   a {
+//     font-weight: bold;
+//     color: #2c3e50;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+//     &.router-link-exact-active {
+//       color: #42b983;
+//     }
+//   }
+// }
 // #container-example2 {
 //   position: relative;
 
