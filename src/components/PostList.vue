@@ -12,7 +12,7 @@
         </span>
         <span class="fav1000" v-else> ♡{{ post.fav }} </span>
         <p>
-          <span class="postName">{{ changeDate(post.date) }}</span>
+          <span class="postDate">{{ changeDate(post.date) }}</span>
           <router-link :to="'/Others/' + post.auth">
             <span class="postName" v-if="post.name"
               >wirtten by {{ post.name }}</span
@@ -67,11 +67,11 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .postList {
   width: 50%;
   display: inline-block;
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 10px;
   border: 1px solid #333333;
   border-radius: 10px;
@@ -101,5 +101,13 @@ export default {
 .postName {
   font-size: 12px;
   color: rgb(168, 175, 180);
+  position: relative;
+  right: 150px;
+}
+.postDate {
+  font-size: 12px;
+  color: rgb(168, 175, 180);
+  position: relative;
+  right: 160px;
 }
 </style>
