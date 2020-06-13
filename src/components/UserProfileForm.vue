@@ -2,7 +2,7 @@
   <div>
     <div>
       <input type="text" v-model="inputName" />
-      <button @click="updateUserName">名前を編集</button>
+      <button @click="updateUserName">10文字以内の名前を編集</button>
     </div>
     <div>
       <div v-if="user.photoURL && user.name">
@@ -18,6 +18,12 @@
         value="ステータスメッセージを編集"
       />
     </div>
+    <div>
+      <input type="text" v-model="inputStatusMessage" />
+      <button @click="updateUserMessage">
+        40字のステータスメッセージを更新
+      </button>
+    </div>
   </div>
 </template>
 
@@ -25,6 +31,13 @@
 import { storage } from "@/firebase";
 
 export default {
+  data() {
+    return {
+      inputName: "",
+      inputImage: null,
+      inputStatusMessage: ""
+    };
+  },
   computed: {
     user() {
       // getters の user なのがポイント！
@@ -63,6 +76,21 @@ export default {
           .then(() => photoRef.getDownloadURL())
           .then(photoURL => {
             this.$store.dispatch("updateUserProfile", { photoURL });
+          });
+      }
+    },
+    updateUserMessage() {
+      console.log(this.inputStatusMessage);
+
+      if (this.inputStatusMessage === "") {
+        alert("ステータスメッセージが設定されていません");
+      } else {
+        this.$store
+          .dispatch("updateUserProfile", {
+            userMessage: this.inputStatusMessage
+          })
+          .then(() => {
+            this.inputStatusMessage = "";
           });
       }
     }
