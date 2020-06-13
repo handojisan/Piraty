@@ -4,6 +4,7 @@
       <div class="hello-profile">{{ userName }}さん、こんにちは！</div>
       <div v-if="$store.getters.isSignedIn" class="center">
         <UserProfileForm />
+        <div>{{ inputStatusMessage }}</div>
         <button @click="signOut">サインアウト</button>
       </div>
       <div v-else>
