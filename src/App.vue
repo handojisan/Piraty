@@ -18,10 +18,12 @@
           <div class="menuLine" v-show="isclicked">
             <div v-if="user" class="user-app">
               <div class="user-email">
-                <router-link to="/profile">{{ user.email }}</router-link>
+                <router-link to="/profile"
+                  >{{ user.email }}でログイン中</router-link
+                >
               </div>
               <div class="userLogout">
-                <a v-on:click="SignOut">Logout</a>
+                <a v-on:click="SignOut">ログアウト</a>
               </div>
             </div>
             <div v-else>
@@ -295,6 +297,7 @@ export default {
   width: 100%;
   position: relative;
   .titleName {
+    text-align: center;
     position: absolute;
     top: 0;
     left: 0;
