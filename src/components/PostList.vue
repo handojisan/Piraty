@@ -13,9 +13,11 @@
         <span class="fav1000" v-else> ♡{{ post.fav }} </span>
         <p>
           <span class="postName">{{ changeDate(post.date) }}</span>
-          <span class="postName" v-if="post.name"
-            >wirtten by {{ post.name }}</span
-          >
+          <router-link :to="'/Others/' + post.auth">
+            <span class="postName" v-if="post.name"
+              >wirtten by {{ post.name }}</span
+            >
+          </router-link>
         </p>
       </div>
     </div>

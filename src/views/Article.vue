@@ -1,12 +1,19 @@
 <template>
   <div class="article">
     <h1 class="title">{{ title(key) }}</h1>
+
+    <span class="postName" v-if="desplayPost.name"
+      >wirtten by
+      <router-link :to="'/Others/' + desplayPost.auth">{{
+        desplayPost.name
+      }}</router-link></span
+    >
     <div v-html="compiledMarkdownText" v-if="posts"></div>
     <button v-if="desplayPost.auth === userid" v-on:click="deleteButton">
       投稿を削除
     </button>
     <button v-else v-on:click="fav">気に入った！</button>
-    <span> {{ this.desplayPost.fav }} </span>
+    <span> {{ desplayPost.fav }} </span>
   </div>
 </template>
 
@@ -126,5 +133,9 @@ export default {
   margin-bottom: 10px;
   margin-top: 10px;
   font-family: sans-serif;
+}
+.postName {
+  font-size: 12px;
+  color: rgb(168, 175, 180);
 }
 </style>
