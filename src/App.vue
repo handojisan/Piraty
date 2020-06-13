@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <header>
       <!-- <div id="container-example2">
         <div class="strip colour-1"> -->
@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#app {
+.app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkdit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
