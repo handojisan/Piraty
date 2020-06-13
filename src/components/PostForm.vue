@@ -74,7 +74,7 @@ export default {
   width: 80%;
   font-size: 30px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 15px;
   border: 1px solid rgb(189, 189, 189);
   border-radius: 10px;
 }
