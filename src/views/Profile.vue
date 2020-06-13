@@ -2,8 +2,10 @@
   <div>
     <div class="center">
       <div>{{ userName }}さん、こんにちは！</div>
+
       <div v-if="$store.getters.isSignedIn" class="center">
         <UserProfileForm />
+        <div>{{ userStatusMessage }}</div>
         <button @click="signOut">サインアウト</button>
       </div>
       <div v-else>
@@ -21,13 +23,6 @@ export default {
   components: {
     UserProfileForm
   },
-  data() {
-    return {
-      inputName: "",
-      inputImage: null,
-      inputStatusMessage: ""
-    };
-  },
   methods: {
     signIn,
     signOut
@@ -39,6 +34,9 @@ export default {
     },
     userName() {
       return this.user.name || this.user.displayName || "ゲスト";
+    },
+    userStatusMessage() {
+      return this.user.userMessage;
     }
     // user: function() {
     //   return this.$store.state.user;

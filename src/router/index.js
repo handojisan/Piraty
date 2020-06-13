@@ -7,6 +7,7 @@ import Post from "@/views/Post.vue";
 import Login from "@/views/Login.vue";
 import Article from "@/views/Article.vue";
 import Profile from "@/views/Profile.vue";
+// import firebase from "firebase";
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,13 @@ const routes = [
     path: "/profile",
     name: "profile",
     component: Profile
+    // beforeEnter: (to, from, next) => {
+    //   if (!firebase.auth.currentUser) {
+    //     console.log("not login");
+    //   } else {
+    //     next();
+    //   }
+    // }
   }
 ];
 

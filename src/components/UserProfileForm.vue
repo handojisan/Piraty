@@ -11,6 +11,10 @@
       <input type="file" accept="image/*" v-on:change="changeFile" />
       <button @click="updateUserImage">画像を更新</button>
     </div>
+    <div>
+      <input type="text" v-model="inputStatusMessage" />
+      <button @click="updateUserMessage">ステータスメッセージを更新</button>
+    </div>
   </div>
 </template>
 
@@ -18,6 +22,13 @@
 import { storage } from "@/firebase";
 
 export default {
+  data() {
+    return {
+      inputName: "",
+      inputImage: null,
+      inputStatusMessage: ""
+    };
+  },
   computed: {
     user() {
       // getters の user なのがポイント！
@@ -56,6 +67,21 @@ export default {
           .then(() => photoRef.getDownloadURL())
           .then(photoURL => {
             this.$store.dispatch("updateUserProfile", { photoURL });
+          });
+      }
+    },
+    updateUserMessage() {
+      console.log(this.inputStatusMessage);
+
+      if (this.inputStatusMessage === "") {
+        alert("ステータスメッセージが設定されていません");
+      } else {
+        this.$store
+          .dispatch("updateUserProfile", {
+            userMessage: this.inputStatusMessage
+          })
+          .then(() => {
+            this.inputStatusMessage = "";
           });
       }
     }
