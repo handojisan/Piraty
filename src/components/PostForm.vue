@@ -2,7 +2,12 @@
   <div id="app">
     <input id="title" type="text" v-model="title" placeholder="タイトル" />
     <div id="main">
-      <mavon-editor v-model="value" :toolbars="markdownOption" language="ja" />
+      <mavon-editor
+        id="mavon-Editor"
+        v-model="value"
+        :toolbars="markdownOption"
+        language="ja"
+      />
     </div>
     <button id="postButton" v-on:click="post">投稿</button>
   </div>
@@ -30,19 +35,26 @@ export default {
         ol: true,
         ul: true,
         link: true,
+        imagelink: true,
         code: true,
         table: true,
         fullscreen: true,
         readmodel: true,
         htmlcode: true,
         help: true,
+        /* 1.3.5 */
         undo: true,
         redo: true,
+        trash: true,
+        save: true,
+        /* 1.4.2 */
         navigation: true,
+        /* 2.1.8 */
         alignleft: true,
         aligncenter: true,
         alignright: true,
-        subfield: true,
+        /* 2.2.1 */
+        subfield: false,
         preview: true
       }
     };
@@ -92,6 +104,10 @@ export default {
   margin-bottom: 10px;
   border: 1px solid rgb(189, 189, 189);
   border-radius: 10px;
+}
+.mavonEditor {
+  width: 100%;
+  height: 100%;
 }
 
 #postButton {

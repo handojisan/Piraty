@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <h1>{{ title(key) }}</h1>
-    <div v-html="compiledMarkdownText(key)" v-if="posts"></div>
+  <div class="article">
+    <h1 class="title">{{ title(key) }}</h1>
+    <div v-html="compiledMarkdownText" v-if="posts"></div>
     <button v-if="desplayPost.auth === userid" v-on:click="deleteButton">
       投稿を削除
     </button>
@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     title: function() {
-      return function(key) {
+      return key => {
         if (this.posts) {
           for (let i = 0; i < this.posts.length; i++) {
             if (this.posts[i].id === key) {
@@ -53,9 +53,8 @@ export default {
       };
     },
     compiledMarkdownText: function() {
-      return function() {
-        return marked(this.desplayPost.value);
-      };
+      console.log(this.desplayPost.value);
+      return marked(this.desplayPost.value);
     }
   },
   methods: {
@@ -100,4 +99,13 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped></style>
+<style scoped>
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.article h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+</style>
