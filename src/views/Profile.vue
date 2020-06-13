@@ -1,14 +1,16 @@
 <template>
-  <div>
+  <div class="profile">
     <div class="center">
-      <div class="hello-profile">{{ userName }}さん、こんにちは！</div>
+      <div class="hello-profile">{{ userName }} さん、こんにちは！</div>
+      <div class="statusMessage">{{ userStatusMessage }}</div>
       <div v-if="$store.getters.isSignedIn" class="center">
         <UserProfileForm />
-        <div>{{ inputStatusMessage }}</div>
         <button @click="signOut">サインアウト</button>
       </div>
       <div v-else>
-        <button @click="signIn" class="signIn-profile">Login</button>
+        <button @click="signIn" class="signIn-profile">
+          GoogleアカウントでLogin
+        </button>
       </div>
     </div>
   </div>
@@ -22,13 +24,6 @@ export default {
   components: {
     UserProfileForm
   },
-  data() {
-    return {
-      inputName: "",
-      inputImage: null,
-      inputStatusMessage: ""
-    };
-  },
   methods: {
     signIn,
     signOut
@@ -40,6 +35,9 @@ export default {
     },
     userName() {
       return this.user.name || this.user.displayName || "ゲスト";
+    },
+    userStatusMessage() {
+      return this.user.userMessage;
     }
     // user: function() {
     //   return this.$store.state.user;
@@ -48,9 +46,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.profile {
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+}
 .hello-profile {
   font-size: 20px;
+  font-weight: bold;
   font-family: sans-serif;
+}
+.statusMessage {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 20px;
+  width: 800px;
+  border: groove;
+  margin: 0 auto;
+  word-wrap: break-all;
+  // height: 30px;
+  // position: relative;
+  // z-index: 5000;
 }
 .signIn-profile {
   font-size: 20px;
