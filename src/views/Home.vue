@@ -1,26 +1,11 @@
 <template>
   <div class="box">
-    <ul>
-      <span>投稿一覧</span>
-      <li>
-        カテゴリー
-        <select name="category">
-          <option value="サンプル1">サンプル1</option>
-          <option value="サンプル2">サンプル2</option>
-          <option value="サンプル3">サンプル3</option>
-        </select>
-      </li>
-      <li>
-        順番
-        <select name="dateorder">
-          <option value="サンプル1">投稿日順</option>
-          <option value="サンプル2">サンプル2</option>
-          <option value="サンプル3">サンプル3</option>
-        </select>
-      </li>
-      <li><Search /></li>
-    </ul>
-    <PostList />
+    <Search />
+    <div class="postBox">
+      <div class="postTitle">PostList</div>
+      <PostList />
+    </div>
+
     <!-- ↑投稿を表示する -->
   </div>
 </template>
@@ -36,16 +21,18 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-.box {
-  padding: 30px;
-  background-color: rgba(0, 0, 0, 0);
-}
-ul {
-  margin: 0px 0px 0px 30px;
-  padding-left: 0px;
-}
-li {
+.postBox {
+  background-color: #ebe4dc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 80%;
   display: inline-block;
-  padding-left: 30px;
+  border-radius: 10px;
+}
+.postTitle {
+  font-size: 35px;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: white;
 }
 </style>

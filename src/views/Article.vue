@@ -108,4 +108,23 @@ export default {
   font-size: 30px;
   font-weight: bold;
 }
+.postList {
+  width: 50%;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #333333;
+  border-radius: 10px;
+  margin-top: 10px;
+  z-index: 3;
+  background-color: white;
+}
+.title {
+  font-size: 20px;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
 </style>

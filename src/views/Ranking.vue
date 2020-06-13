@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <p>人気の記事の上位3つです</p>
-    <div v-for="post in posts" :key="post.id">
-      <div class="postList">
-        <router-link :to="'/Article/' + post.id">
-          <span class="title">{{ post.title }}</span>
-        </router-link>
-        <span class="fav"> ♡{{ post.fav }} </span>
-        <p v-if="post.name">wirtten by {{ post.name }}</p>
+    <div class="ranking-box">
+      <div class="ranking-title">
+        <p>Top 3</p>
+      </div>
+      <div v-for="post in posts" :key="post.id">
+        <div class="postList">
+          <router-link :to="'/Article/' + post.id">
+            <span class="title">{{ post.title }}</span>
+          </router-link>
+          <span class="fav"> ♡{{ post.fav }} </span>
+          <p class="postName" v-if="post.name">wirtten by {{ post.name }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -41,7 +45,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 .postList {
   width: 50%;
   display: inline-block;
@@ -50,6 +54,8 @@ export default {
   border: 1px solid #333333;
   border-radius: 10px;
   margin-top: 10px;
+  z-index: 3;
+  background-color: white;
 }
 .title {
   font-size: 20px;
@@ -60,5 +66,24 @@ export default {
 }
 .fav {
   color: red;
+}
+.ranking-box {
+  background-color: #ebe4dc;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 80%;
+  display: inline-block;
+  border-radius: 10px;
+  margin: 30px;
+  .ranking-title {
+    font-size: 35px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: white;
+  }
+  .postName {
+    font-size: 12px;
+    color: rgb(168, 175, 180);
+  }
 }
 </style>
