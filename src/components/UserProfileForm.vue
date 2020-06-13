@@ -2,14 +2,21 @@
   <div>
     <div>
       <input type="text" v-model="inputName" />
-      <button @click="updateUserName">名前を更新</button>
+      <button @click="updateUserName">名前を編集</button>
     </div>
     <div>
       <div v-if="user.photoURL && user.name">
         <img :src="user.photoURL" :alt="user.name + 'の画像'" />
       </div>
       <input type="file" accept="image/*" v-on:change="changeFile" />
-      <button @click="updateUserImage">画像を更新</button>
+      <button @click="updateUserImage">プロフィール画像を更新</button>
+    </div>
+    <div v-if="user.statusMessage && user.name">
+      <input
+        type="text"
+        v-model="inputStatusMessage"
+        value="ステータスメッセージを編集"
+      />
     </div>
     <div>
       <input type="text" v-model="inputStatusMessage" />

@@ -9,14 +9,7 @@
 </template>
 
 <script>
-import Vue from "vue";
-import mavonEditor from "mavon-editor";
-import "mavon-editor/dist/css/index.css";
-import VuejsDialog from "vuejs-dialog";
 import { db } from "@/firebase";
-
-Vue.use(mavonEditor);
-Vue.use(VuejsDialog);
 
 export default {
   name: "app",
@@ -67,11 +60,14 @@ export default {
             cancelText: "キャンセル"
           }
         )
-        .then(function() {
+        .then(() => {
+          console.log("aa");
           const post = {
             title: this.title,
             value: this.value,
-            date: Date.now()
+            date: Date.now(),
+            auth: this.$store.state.user.uid,
+            fav: 0
           };
           if (post.title && post.value) {
             this.title = "";
@@ -79,8 +75,8 @@ export default {
             db.collection("posts").add(post);
           }
         })
-        .catch(function() {
-          console.log("cancel");
+        .catch(() => {
+          console.log("Clicked on cancel");
         });
     }
   }

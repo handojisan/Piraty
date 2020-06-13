@@ -18,9 +18,8 @@
           <option value="サンプル3">サンプル3</option>
         </select>
       </li>
-      <li><input type="submit" name="submit" value="検索" /></li>
+      <li><Search /></li>
     </ul>
-    <Search />
     <PostList />
     <!-- ↑投稿を表示する -->
   </div>
@@ -39,6 +38,7 @@ export default {
 <style lang="scss">
 .box {
   padding: 30px;
+  background-color: rgba(0, 0, 0, 0);
 }
 ul {
   margin: 0px 0px 0px 30px;
