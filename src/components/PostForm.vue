@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <input id="title" type="text" v-model="title" placeholder="タイトル" />
+    <div class="tips">※改行するときは，2回エンターキーを押してください</div>
     <div id="main">
       <mavon-editor
         id="mavon-Editor"

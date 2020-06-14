@@ -36,6 +36,7 @@ export default {
   },
   mounted() {
     db.collection("posts")
+      .orderBy("date", "desc")
       .get()
       .then(snapshot => {
         this.posts = snapshot.docs.map(doc => {
